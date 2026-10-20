@@ -1,4 +1,4 @@
-# LocalCodeEngine
+# AccelerateModel
 
 A unified local code generation and benchmarking project.
 
