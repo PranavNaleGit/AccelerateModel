@@ -1,4 +1,5 @@
-﻿import json
+
+import json
 import statistics
 from datetime import datetime, timezone
 from pathlib import Path
@@ -22,6 +23,9 @@ def run_benchmark(
     if runs < 1:
         raise ValueError("runs must be at least 1")
 
+    if max_tokens < 1:
+        raise ValueError("max_tokens must be at least 1")
+
     if warmup:
         controller.generate(
             GenerationRequest(DEFAULT_PROMPT, model, max_tokens)
@@ -33,16 +37,29 @@ def run_benchmark(
         result = controller.generate(
             GenerationRequest(DEFAULT_PROMPT, model, max_tokens)
         )
-        samples.append({
-            "run": index + 1,
-            "tokens_per_second": round(result.tokens_per_second, 3),
-            "generated_tokens": result.eval_count,
-            "generation_seconds": round(
-                result.wall_time_seconds, 4
-            ),
-        })
 
-    speeds = [x["tokens_per_second"] for x in samples]
+        samples.append(
+            {
+                "run": index + 1,
+                "tokens_per_second": round(
+                    result.tokens_per_second, 3
+                ),
+                "generated_tokens": result.eval_count,
+                "generation_seconds": round(
+                    result.wall_time_seconds, 4
+                ),
+            }
+        )
+
+    speeds = [
+        sample["tokens_per_second"]
+        for sample in samples
+    ]
+
+    latencies = [
+        sample["generation_seconds"]
+        for sample in samples
+    ]
 
     return {
         "timestamp_utc": datetime.now(timezone.utc).isoformat(),
@@ -57,15 +74,30 @@ def run_benchmark(
             "median_tokens_per_second": round(
                 statistics.median(speeds), 3
             ),
-            "minimum_tokens_per_second": round(min(speeds), 3),
-            "maximum_tokens_per_second": round(max(speeds), 3),
+            "minimum_tokens_per_second": round(
+                min(speeds), 3
+            ),
+            "maximum_tokens_per_second": round(
+                max(speeds), 3
+            ),
+            "average_generation_seconds": round(
+                statistics.mean(latencies), 4
+            ),
+            "median_generation_seconds": round(
+                statistics.median(latencies), 4
+            ),
         },
     }
 
 
-def save_results(results, path="results/benchmark-results.json"):
+def save_results(
+    results,
+    path="results/benchmark-results.json",
+):
     output = Path(path)
     output.parent.mkdir(parents=True, exist_ok=True)
+
     output.write_text(
-        json.dumps(results, indent=2), encoding="utf-8"
+        json.dumps(results, indent=2),
+        encoding="utf-8",
     )

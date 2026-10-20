@@ -1,4 +1,4 @@
-﻿import pytest
+import pytest
 from local_code_engine.controller import (
     GenerationController,
     GenerationRequest,

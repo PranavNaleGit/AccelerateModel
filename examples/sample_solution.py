@@ -1,4 +1,4 @@
-﻿def is_prime(n: int) -> bool:
+def is_prime(n: int) -> bool:
     """Return True if n is prime."""
     if n < 2:
         return False
