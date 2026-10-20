@@ -1,0 +1,6 @@
+{
+  "model": "qwen2.5-coder:1.5b",
+  "ollama_host": "http://127.0.0.1:11435",
+  "default_runs": 5,
+  "max_tokens": 256
+}

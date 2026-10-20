@@ -1,0 +1,24 @@
+﻿{
+    "captured_at":  "2026-10-20T20:04:54.1066447+05:30",
+    "os":  {
+               "Caption":  "Microsoft Windows 11 Pro",
+               "Version":  "10.0.26200",
+               "BuildNumber":  "26200"
+           },
+    "system_ram_bytes":  16852574208,
+    "gpu":  [
+                {
+                    "Name":  "Intel(R) UHD Graphics",
+                    "DriverVersion":  "32.0.101.7085",
+                    "AdapterRAM":  2147479552
+                },
+                {
+                    "Name":  "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+                    "DriverVersion":  "32.0.15.7693",
+                    "AdapterRAM":  4293918720
+                }
+            ],
+    "python":  "Python 3.12.9",
+    "ollama":  "ollama version is 0.40.3",
+    "nvidia_smi":  "Tue Oct 20 20:04:54 2026        +-----------------------------------------------------------------------------------------+ | NVIDIA-SMI 576.93                 Driver Version: 576.93         CUDA Version: 12.9     | |-----------------------------------------+------------------------+----------------------+ | GPU  Name                  Driver-Model | Bus-Id          Disp.A | Volatile Uncorr. ECC | | Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. | |                                         |                        |               MIG M. | |=========================================+========================+======================| |   0  NVIDIA GeForce RTX 3050 ...  WDDM  |   00000000:01:00.0 Off |                  N/A | | N/A   48C    P8              9W /   60W |    1209MiB /   6144MiB |      0%      Default | |                                         |                        |                  N/A | +-----------------------------------------+------------------------+----------------------+                                                                                           +-----------------------------------------------------------------------------------------+ | Processes:                                                                              | |  GPU   GI   CI              PID   Type   Process name                        GPU Memory | |        ID   ID                                                               Usage      | |=========================================================================================| +-----------------------------------------------------------------------------------------+"
+}

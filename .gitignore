@@ -1,0 +1,16 @@
+.venv/
+__pycache__/
+.pytest_cache/
+*.py[cod]
+
+# Generated package metadata
+src/*.egg-info/
+
+# Generated benchmark outputs
+results/*
+!results/.gitkeep
+
+# Keep baseline evidence under version control
+!results/baseline-final.json
+!results/benchmark-results.json
+!results/hardware-inventory.json

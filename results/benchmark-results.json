@@ -1,0 +1,44 @@
+{
+  "timestamp_utc": "2026-10-20T14:31:53.671589+00:00",
+  "model": "qwen2.5-coder:1.5b",
+  "runs": 5,
+  "warmup": true,
+  "samples": [
+    {
+      "run": 1,
+      "tokens_per_second": 113.714,
+      "generated_tokens": 69,
+      "generation_seconds": 0.678
+    },
+    {
+      "run": 2,
+      "tokens_per_second": 112.288,
+      "generated_tokens": 204,
+      "generation_seconds": 1.8831
+    },
+    {
+      "run": 3,
+      "tokens_per_second": 112.395,
+      "generated_tokens": 193,
+      "generation_seconds": 1.8304
+    },
+    {
+      "run": 4,
+      "tokens_per_second": 113.771,
+      "generated_tokens": 97,
+      "generation_seconds": 0.9199
+    },
+    {
+      "run": 5,
+      "tokens_per_second": 112.519,
+      "generated_tokens": 97,
+      "generation_seconds": 0.9225
+    }
+  ],
+  "summary": {
+    "average_tokens_per_second": 112.937,
+    "median_tokens_per_second": 112.519,
+    "minimum_tokens_per_second": 112.288,
+    "maximum_tokens_per_second": 113.771
+  }
+}
